@@ -1,0 +1,37 @@
+.App {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.App.dark {
+  background-color: #0f0f0f;
+  color: #f4f4f4;
+}
+
+.App.light {
+  background-color: #ffffff;
+  color: #1a1a1a;
+}
+
+section {
+  padding: 80px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--accent-color), transparent);
+  opacity: 0.3;
+}
+
+@media (max-width: 768px) {
+  section {
+    padding: 50px 0;
+  }
+}
