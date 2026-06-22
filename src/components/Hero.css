@@ -1,0 +1,242 @@
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, rgba(30, 60, 114, 0.1), rgba(42, 82, 152, 0.1));
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(0, 212, 255, 0.1) 0%, transparent 70%);
+  animation: pulse 15s ease-in-out infinite;
+}
+
+.hero .container {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+}
+
+.hero-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.hero-text {
+  z-index: 10;
+}
+
+.hero-title {
+  font-size: 4.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+  font-family: 'Playfair Display', serif;
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #00d4ff, #0084ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+.hero-subtitle {
+  font-size: 1.5rem;
+  color: #00d4ff;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+}
+
+.hero-description {
+  font-size: 1.1rem;
+  color: #b0b0b0;
+  margin-bottom: 2rem;
+  max-width: 500px;
+  line-height: 1.8;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #00d4ff, #0084ff);
+  color: #000;
+  box-shadow: 0 4px 20px rgba(0, 212, 255, 0.3);
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(0, 212, 255, 0.5);
+}
+
+.btn-secondary {
+  border: 2px solid #00d4ff;
+  color: #00d4ff;
+  background: transparent;
+}
+
+.btn-secondary:hover {
+  background: rgba(0, 212, 255, 0.1);
+  transform: translateY(-3px);
+}
+
+.hero-visual {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 400px;
+}
+
+.circle {
+  position: absolute;
+  border-radius: 50%;
+  border: 2px solid;
+  animation: rotate 20s linear infinite;
+}
+
+.circle-1 {
+  width: 300px;
+  height: 300px;
+  border-color: rgba(0, 212, 255, 0.3);
+}
+
+.circle-2 {
+  width: 200px;
+  height: 200px;
+  border-color: rgba(0, 132, 255, 0.3);
+  animation: rotate 15s linear infinite reverse;
+}
+
+.circle-3 {
+  width: 100px;
+  height: 100px;
+  border-color: rgba(0, 212, 255, 0.5);
+  animation: rotate 10s linear infinite;
+}
+
+.hero-scroll {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+}
+
+.scroll-indicator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  animation: bounce 2s ease-in-out infinite;
+}
+
+.scroll-indicator span {
+  font-size: 0.9rem;
+  color: #00d4ff;
+}
+
+.scroll-arrow {
+  font-size: 1.5rem;
+  color: #00d4ff;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(10px);
+  }
+}
+
+@keyframes shimmer {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .hero-title {
+    font-size: 2.5rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.2rem;
+  }
+
+  .hero-description {
+    font-size: 1rem;
+  }
+
+  .hero-visual {
+    height: 250px;
+  }
+
+  .circle-1 {
+    width: 200px;
+    height: 200px;
+  }
+
+  .circle-2 {
+    width: 130px;
+    height: 130px;
+  }
+
+  .circle-3 {
+    width: 70px;
+    height: 70px;
+  }
+}
